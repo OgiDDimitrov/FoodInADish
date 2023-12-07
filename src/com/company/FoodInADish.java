@@ -32,7 +32,14 @@ public class FoodInADish<T> extends DrawableObj implements Comparable<FoodInADis
 
     @Override
     public int compareTo(FoodInADish<T> o) {
-        return 0;
+        if (this.getFood() instanceof Fruit && o.getFood() instanceof Fruit) {
+            return Double.compare(((Fruit) this.getFood()).getKg(), ((Fruit) o.getFood()).getKg());
+        } else if (this.getFood() instanceof Vegetable &&o.getFood() instanceof Vegetable) {
+            return Double.compare(((Vegetable) this.getFood()).getKg(), ((Vegetable) o.getFood()).getKg());
+        } else if (this.getFood() instanceof Fruit) {
+            return -1;
+        } else
+            return 1;
     }
 
 
